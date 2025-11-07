@@ -22,11 +22,14 @@ database.connect();
 app.use(express.json());
 app.use(cookieParser());
 app.use(
-	cors({
-		origin: "*",
-		credentials: true,
-	})
-)
+  cors({
+    origin: [
+      "http://localhost:3000", // your local frontend (for development)
+      "https://study-notion-i.vercel.app/" // your deployed frontend
+    ],
+    credentials: true,
+  })
+);
 // app.use((req, res, next) => {
 // 	res.header('Access-Control-Allow-Origin', '*');
 // 	next();
